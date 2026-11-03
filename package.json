@@ -1,0 +1,13 @@
+{
+  "name": "allenati",
+  "version": "3.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/test.cjs && node tests/extra-tests.cjs && node tests/upgrade-test.cjs",
+    "assets": "node tools/generate-assets.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

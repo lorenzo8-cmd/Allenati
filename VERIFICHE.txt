@@ -1,0 +1,17 @@
+PASS — Home mobile: cinque schede, nessun overflow e bundle offline pronto
+PASS — Dati A–E, serie introduttive e alternative TRX verificati
+PASS — Peso salvato e recupero in pausa persistono dopo ricaricamento
+PASS — Timer a scadenza assoluta, pausa/ripresa e recupero solo fra serie
+PASS — Ricaricamento e tutte le 43 risorse disponibili senza rete
+PASS — Intera seduta offline completata e ultimo allenamento conservato
+PASS — Disattivare TRX applica le alternative anche alla seduta in corso
+PASS — Esportazione, ripristino backup e rifiuto di dati non validi
+PASS — Recupero da IndexedDB quando la copia locale è corrotta
+PASS — Navigazione di tutte le schede e caricamento di ogni dimostrazione
+PASS — Seduta saltata non sostituisce ultimo allenamento completato
+PASS — Nessun errore JavaScript
+
+Test automatici: Edge/Chromium, viewport iPhone 390×844. Safari su iPhone fisico non disponibile in questo ambiente.
+PASS — Fallback localStorage/IndexedDB e avviso quando entrambi indisponibili.
+PASS — Rilevamento di risorsa mancante nella cache e riparazione al ritorno della rete.
+PASS — Aggiornamento v2→v3: download incompleto conserva la vecchia app; chiusura/riapertura attiva il nuovo bundle, elimina la vecchia cache e funziona offline.

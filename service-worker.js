@@ -1,1 +1,51 @@
-const CACHE='allenati-v2';self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(['./','./index.html','./icon.png','./manifest.webmanifest']))));self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request))));
+// Versioned, complete offline bundle. A failed installation never replaces the working version.
+const CACHE='allenati-v3-20261103-1';
+const FILES=[
+  "./",
+  "./index.html",
+  "./style.css",
+  "./app.js",
+  "./data.js",
+  "./storage.js",
+  "./manifest.webmanifest",
+  "./icon.png",
+  "./assets/flat.svg",
+  "./assets/incline.svg",
+  "./assets/row.svg",
+  "./assets/ezcurl.svg",
+  "./assets/hammer.svg",
+  "./assets/french.svg",
+  "./assets/lighttriceps.svg",
+  "./assets/reverse.svg",
+  "./assets/thoracic.svg",
+  "./assets/bandshoulder.svg",
+  "./assets/trxsquat.svg",
+  "./assets/chairsquat.svg",
+  "./assets/goblet.svg",
+  "./assets/scaprow.svg",
+  "./assets/scapfree.svg",
+  "./assets/deadbug.svg",
+  "./assets/rdl.svg",
+  "./assets/shoulderpress.svg",
+  "./assets/lateral.svg",
+  "./assets/calf.svg",
+  "./assets/abwheel.svg",
+  "./assets/plank.svg",
+  "./assets/bandcurl.svg",
+  "./assets/pullapart.svg",
+  "./assets/external.svg",
+  "./assets/trxrow.svg",
+  "./assets/chestrow.svg",
+  "./assets/pushup.svg",
+  "./assets/eztriceps.svg",
+  "./assets/rearfly.svg",
+  "./assets/march.svg",
+  "./assets/warmup.svg",
+  "./assets/hipankle.svg",
+  "./assets/stretchlower.svg",
+  "./assets/stretchupper.svg"
+];
+self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES.map(url=>new Request(url,{cache:'reload'}))))));
+self.addEventListener('activate',event=>event.waitUntil((async()=>{for(const key of await caches.keys()){if(key.startsWith('allenati-')&&key!==CACHE)await caches.delete(key);}await self.clients.claim();})()));
+self.addEventListener('fetch',event=>{if(event.request.method!=='GET'||new URL(event.request.url).origin!==self.location.origin)return;event.respondWith((async()=>{const cache=await caches.open(CACHE);if(event.request.mode==='navigate')return await cache.match('./index.html')||fetch(event.request);return await cache.match(event.request)||fetch(event.request);})());});
+self.addEventListener('message',event=>{if(event.data?.type==='VERIFY_OFFLINE')event.waitUntil((async()=>{const cache=await caches.open(CACHE);let results=await Promise.all(FILES.map(url=>cache.match(url)));if(!results.every(Boolean)){try{const script=await fetch('./service-worker.js',{cache:'no-store'});if(script.ok&&(await script.text()).includes(CACHE)){await cache.addAll(FILES.filter((_,i)=>!results[i]).map(url=>new Request(url,{cache:'reload'})));results=await Promise.all(FILES.map(url=>cache.match(url)));}}catch{}}event.ports[0]?.postMessage({ready:results.every(Boolean),version:CACHE});})());});

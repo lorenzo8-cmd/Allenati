@@ -1,0 +1,5 @@
+const http=require('http'),fs=require('fs'),path=require('path');
+let base=path.resolve(__dirname,'..');
+let blocked='';module.exports={setBase:p=>base=path.resolve(p),block:p=>blocked=p};
+http.createServer((req,res)=>{if(blocked&&req.url.includes(blocked)){res.writeHead(503);res.end();return;}let name=decodeURIComponent(req.url.split('?')[0]);if(!name.startsWith('/Allenati/')){res.writeHead(302,{Location:'/Allenati/'});res.end();return;}let f=path.resolve(base,name.slice(10)||'index.html');if(!f.startsWith(base+path.sep)&&f!==base){res.writeHead(403);res.end();return;}if(fs.existsSync(f)&&fs.statSync(f).isDirectory())f=path.join(f,'index.html');fs.readFile(f,(err,body)=>{if(err){res.writeHead(404);res.end();return;}res.writeHead(200,{'Content-Type':({'.js':'text/javascript','.html':'text/html','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.webmanifest':'application/manifest+json'}[path.extname(f)]||'text/plain'),'Cache-Control':'no-cache'});res.end(body);});}).listen(8877,'127.0.0.1',()=>console.log('Allenati test server on http://127.0.0.1:8877/Allenati/'));
+
