@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a1016"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Allenati"><link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./icon.png"><title>Allenati · Home Gym</title>
 <style>
-:root{color-scheme:dark;--bg:#0a1016;--panel:#121e29;--panel2:#182835;--line:#2a3c48;--text:#f0f6f7;--muted:#9aadb6;--green:#a6edc3;--blue:#a0c8fc}*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Inter,Arial,sans-serif;-webkit-tap-highlight-color:transparent}body{background:radial-gradient(ellipse at 55% 3%,#12313d 0,transparent 58%),var(--bg);overflow-x:hidden}button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}.page{max-width:600px;min-height:100dvh;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 30px)}.row{display:flex;align-items:center;justify-content:space-between;gap:12px}.eyebrow{font-size:12px;letter-spacing:.17em;color:var(--green);font-weight:850;text-transform:uppercase}.sub{font-size:14px;color:var(--muted)}h1,h2,h3,p{margin:0}h1{font-size:clamp(34px,8vw,47px);line-height:1.04;letter-spacing:-.05em}h2{font-size:clamp(27px,6.5vw,36px);line-height:1.11;letter-spacing:-.04em}h3{font-size:19px}.topspace{height:24px}.hero{padding:20px 0 22px}.hero p{margin-top:12px;color:var(--muted);font-size:15px;line-height:1.5}.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px}.last{padding:17px;margin:8px 0 22px}.last strong{font-size:19px}.chip{display:inline-flex;align-items:center;justify-content:center;border-radius:100px;padding:7px 11px;background:#223b43;color:var(--green);font-weight:750;font-size:12px;letter-spacing:.04em}.chip.light{background:#203550;color:var(--blue)}.mini{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:13px;padding:10px 12px;font-size:13px}.session-item{display:flex;align-items:center;gap:14px;text-align:left;width:100%;min-height:83px;margin-top:10px;padding:14px;background:var(--panel);border:1px solid var(--line);border-radius:18px;color:var(--text)}.session-item:active,.primary:active{transform:scale(.99)}.letter{display:grid;place-items:center;border-radius:13px;width:49px;height:49px;flex:none;background:#244c43;color:var(--green);font-size:24px;font-weight:850}.letter.light{background:#203550;color:var(--blue)}.grow{flex:1;min-width:0}.session-item strong{font-size:16px;display:block;line-height:1.25}.session-item small{font-size:12px;color:var(--muted);display:block;margin-top:5px}.chevron{font-size:27px;color:var(--green)}.footer{font-size:11px;color:#8094a1;line-height:1.55;margin-top:22px}.footer a{color:var(--muted)}.back{background:transparent;border:0;color:var(--muted);padding:10px 0;font-size:15px;font-weight:650}.progress{height:5px;border-radius:10px;background:#253843;margin:18px 0 22px;overflow:hidden}.progress div{height:100%;background:var(--green);border-radius:10px;transition:width .25s}.stepinfo{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}.stepinfo span{font-size:12px;font-weight:850;letter-spacing:.12em;color:var(--green)}.workouttitle{min-height:62px;margin-bottom:12px}.visual{height:clamp(220px,36vh,320px);border:1px solid var(--line);border-radius:22px;background:radial-gradient(ellipse at center,#1b3441 0,#0d1720 76%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.visual img{width:92%;height:93%;object-fit:contain}.demoNote{position:absolute;bottom:8px;right:10px;left:10px;text-align:center;color:#b3c2cc;font-size:10px;background:#14242dda;padding:6px 9px;border-radius:9px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.stat{background:#101e28;border:1px solid var(--line);border-radius:16px;padding:13px 15px}.stat b{font-size:26px;font-weight:820;letter-spacing:-.04em}.stat label{display:block;font-size:11px;color:var(--muted);margin-top:3px;letter-spacing:.03em}.weight{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding:9px 13px;border:1px solid var(--line);background:#101e28;border-radius:16px}.weight button{height:49px;width:49px;flex:none;background:#203b37;border:1px solid #31594c;color:var(--green);border-radius:13px;font-weight:750;font-size:30px;line-height:1}.weight .center{text-align:center}.weight strong{font-size:26px}.weight small{display:block;color:var(--muted);font-size:11px}.note{min-height:33px;font-size:13px;line-height:1.4;color:var(--muted);margin:13px 2px 8px}.primary{display:block;width:100%;border:none;background:var(--green);color:#09201a;font-weight:850;font-size:20px;letter-spacing:-.02em;min-height:72px;border-radius:19px;box-shadow:0 12px 32px #4bc48d19}.secondary{width:100%;border:0;background:transparent;color:var(--muted);font-size:13px;padding:16px 0}.restVisual{flex-direction:column}.timer{font-weight:850;font-size:clamp(72px,19vw,116px);letter-spacing:-.07em;font-variant-numeric:tabular-nums;color:var(--text)}.timerline{margin-top:9px;color:var(--muted);font-size:14px}.next{margin-top:14px;color:var(--text);font-size:14px;text-align:center;line-height:1.45;max-width:360px}.flash{color:var(--green)!important}.help{margin-top:15px;font-size:12px;color:var(--muted);text-align:center}.overview{margin-top:12px}.overview button{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:13px;color:var(--text);padding:13px;text-align:left;margin-bottom:7px}.overview button b{display:block;font-size:13px}.overview button small{display:block;color:var(--muted);margin-top:3px}.safety{margin-top:12px;font-size:12px;color:var(--muted);line-height:1.5}.hidden{display:none!important}@media(min-height:790px){.page{padding-top:calc(env(safe-area-inset-top) + 32px)}.visual{height:clamp(240px,38vh,340px)}}@media(max-height:740px){.page{padding-top:calc(env(safe-area-inset-top) + 9px)}.topspace{height:7px}.hero{padding:10px 0}.visual{height:210px}.workouttitle{min-height:auto}.primary{min-height:62px}.progress{margin:9px 0 15px}}
+:root{color-scheme:dark;--bg:#0a1016;--panel:#121e29;--panel2:#182835;--line:#2a3c48;--text:#f0f6f7;--muted:#9aadb6;--green:#a6edc3;--blue:#a0c8fc}*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Inter,Arial,sans-serif;-webkit-tap-highlight-color:transparent}body{background:radial-gradient(ellipse at 55% 3%,#12313d 0,transparent 58%),var(--bg);overflow-x:hidden}button{font:inherit;cursor:pointer;touch-action:manipulation;-webkit-user-select:none;user-select:none}html,body,#app{touch-action:manipulation} .weight button{-webkit-touch-callout:none;touch-action:manipulation}button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}.page{max-width:600px;min-height:100dvh;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 30px)}.row{display:flex;align-items:center;justify-content:space-between;gap:12px}.eyebrow{font-size:12px;letter-spacing:.17em;color:var(--green);font-weight:850;text-transform:uppercase}.sub{font-size:14px;color:var(--muted)}h1,h2,h3,p{margin:0}h1{font-size:clamp(34px,8vw,47px);line-height:1.04;letter-spacing:-.05em}h2{font-size:clamp(27px,6.5vw,36px);line-height:1.11;letter-spacing:-.04em}h3{font-size:19px}.topspace{height:24px}.hero{padding:20px 0 22px}.hero p{margin-top:12px;color:var(--muted);font-size:15px;line-height:1.5}.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px}.last{padding:17px;margin:8px 0 22px}.last strong{font-size:19px}.chip{display:inline-flex;align-items:center;justify-content:center;border-radius:100px;padding:7px 11px;background:#223b43;color:var(--green);font-weight:750;font-size:12px;letter-spacing:.04em}.chip.light{background:#203550;color:var(--blue)}.mini{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:13px;padding:10px 12px;font-size:13px}.session-item{display:flex;align-items:center;gap:14px;text-align:left;width:100%;min-height:83px;margin-top:10px;padding:14px;background:var(--panel);border:1px solid var(--line);border-radius:18px;color:var(--text)}.session-item:active,.primary:active{transform:scale(.99)}.letter{display:grid;place-items:center;border-radius:13px;width:49px;height:49px;flex:none;background:#244c43;color:var(--green);font-size:24px;font-weight:850}.letter.light{background:#203550;color:var(--blue)}.grow{flex:1;min-width:0}.session-item strong{font-size:16px;display:block;line-height:1.25}.session-item small{font-size:12px;color:var(--muted);display:block;margin-top:5px}.chevron{font-size:27px;color:var(--green)}.footer{font-size:11px;color:#8094a1;line-height:1.55;margin-top:22px}.footer a{color:var(--muted)}.back{background:transparent;border:0;color:var(--muted);padding:10px 0;font-size:15px;font-weight:650}.progress{height:5px;border-radius:10px;background:#253843;margin:18px 0 22px;overflow:hidden}.progress div{height:100%;background:var(--green);border-radius:10px;transition:width .25s}.stepinfo{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}.stepinfo span{font-size:12px;font-weight:850;letter-spacing:.12em;color:var(--green)}.workouttitle{min-height:62px;margin-bottom:12px}.visual{height:clamp(220px,36vh,320px);border:1px solid var(--line);border-radius:22px;background:radial-gradient(ellipse at center,#1b3441 0,#0d1720 76%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.visual img{width:92%;height:93%;object-fit:contain}.demoNote{position:absolute;bottom:8px;right:10px;left:10px;text-align:center;color:#b3c2cc;font-size:10px;background:#14242dda;padding:6px 9px;border-radius:9px}.stats{display:block;margin-top:12px}.stat{width:100%}.stat b{font-size:30px}.timeOptions{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}.timeOptions button{background:#243c49;color:#e6f4f8;border:1px solid #375261;border-radius:10px;padding:9px 17px;font-size:15px;font-weight:750}.timeOptions button.active{background:var(--green);color:#09201a}.counting{font-variant-numeric:tabular-nums;color:var(--green)}.wakeWarning{color:var(--muted);font-size:11px;margin-top:8px;text-align:center}.stat{background:#101e28;border:1px solid var(--line);border-radius:16px;padding:13px 15px}.stat b{font-size:26px;font-weight:820;letter-spacing:-.04em}.stat label{display:block;font-size:11px;color:var(--muted);margin-top:3px;letter-spacing:.03em}.weight{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding:9px 13px;border:1px solid var(--line);background:#101e28;border-radius:16px}.weight button{height:49px;width:49px;flex:none;background:#203b37;border:1px solid #31594c;color:var(--green);border-radius:13px;font-weight:750;font-size:30px;line-height:1}.weight .center{text-align:center}.weight strong{font-size:26px}.weight small{display:block;color:var(--muted);font-size:11px}.note{min-height:33px;font-size:13px;line-height:1.4;color:var(--muted);margin:13px 2px 8px}.primary{display:block;width:100%;border:none;background:var(--green);color:#09201a;font-weight:850;font-size:20px;letter-spacing:-.02em;min-height:72px;border-radius:19px;box-shadow:0 12px 32px #4bc48d19}.secondary{width:100%;border:0;background:transparent;color:var(--muted);font-size:13px;padding:16px 0}.restVisual{flex-direction:column}.timer{font-weight:850;font-size:clamp(72px,19vw,116px);letter-spacing:-.07em;font-variant-numeric:tabular-nums;color:var(--text)}.timerline{margin-top:9px;color:var(--muted);font-size:14px}.next{margin-top:14px;color:var(--text);font-size:14px;text-align:center;line-height:1.45;max-width:360px}.flash{color:var(--green)!important}.help{margin-top:15px;font-size:12px;color:var(--muted);text-align:center}.overview{margin-top:12px}.overview button{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:13px;color:var(--text);padding:13px;text-align:left;margin-bottom:7px}.overview button b{display:block;font-size:13px}.overview button small{display:block;color:var(--muted);margin-top:3px}.safety{margin-top:12px;font-size:12px;color:var(--muted);line-height:1.5}.hidden{display:none!important}@media(min-height:790px){.page{padding-top:calc(env(safe-area-inset-top) + 32px)}.visual{height:clamp(240px,38vh,340px)}}@media(max-height:740px){.page{padding-top:calc(env(safe-area-inset-top) + 9px)}.topspace{height:7px}.hero{padding:10px 0}.visual{height:210px}.workouttitle{min-height:auto}.primary{min-height:62px}.progress{margin:9px 0 15px}}
 </style></head><body><main class="page" id="app"><div class="hero"><h1>Allenati</h1><p>Caricamento della scheda…</p></div></main>
 <script src="./assets/motion-01.js"></script><script src="./assets/motion-02.js"></script><script src="./assets/motion-03.js"></script><script src="./assets/motion-04.js"></script><script src="./assets/motion-05.js"></script><script src="./assets/motion-06.js"></script><script src="./assets/motion-07.js"></script><script src="./assets/motion-08.js"></script><script src="./assets/motion-09.js"></script><script src="./assets/motion-10.js"></script>
 <script>
@@ -26,6 +26,56 @@ try{old=JSON.parse(localStorage.getItem(LEGACY)||'{}')||{}}catch(e){}
 try{data={...defaults,...JSON.parse(localStorage.getItem(KEY)||'{}')};if(!localStorage.getItem(KEY)){data.weights=old.weights||{};data.last=old.last||null;data.lastDate=old.lastDate||null}}catch(e){data={...defaults,weights:old.weights||{}}}
 let phase='home',timerInterval=null,animInterval=null,currentBlob='',urlCache={},fullList=false,paused=false;
 function save(){try{localStorage.setItem(KEY,JSON.stringify(data))}catch(e){}}
+
+// While a guided session is visible, request a screen wake lock (supported in Home Screen web apps on modern iOS).
+let wakeSentinel=null,wakeBusy=false,wakeUnavailable=false;
+async function keepScreenOn(){
+ if(!data.active||document.visibilityState!=='visible'||wakeBusy||wakeSentinel&&!wakeSentinel.released)return;
+ if(!('wakeLock' in navigator)){wakeUnavailable=true;return}
+ wakeBusy=true;
+ try{wakeSentinel=await navigator.wakeLock.request('screen');wakeUnavailable=false;wakeSentinel.addEventListener('release',()=>{wakeSentinel=null})}
+ catch(err){wakeUnavailable=true;console.warn('Screen wake lock not available:',err)}
+ finally{wakeBusy=false}
+}
+function releaseScreen(){const current=wakeSentinel;wakeSentinel=null;if(current)current.release().catch(()=>{})}
+let soundContext=null;
+function unlockSound(){try{let C=window.AudioContext||window.webkitAudioContext;if(!C)return;if(!soundContext)soundContext=new C();if(soundContext.state==='suspended')soundContext.resume().catch(()=>{})}catch(e){console.warn(e)}}
+function ding(){
+ try{unlockSound();if(!soundContext||soundContext.state!=='running')return;const now=soundContext.currentTime;
+ const osc=soundContext.createOscillator(),vol=soundContext.createGain();osc.type='sine';osc.frequency.setValueAtTime(880,now);osc.frequency.exponentialRampToValueAtTime(660,now+.18);
+ vol.gain.setValueAtTime(.0001,now);vol.gain.exponentialRampToValueAtTime(.16,now+.018);vol.gain.exponentialRampToValueAtTime(.0001,now+.35);
+ osc.connect(vol);vol.connect(soundContext.destination);osc.start(now);osc.stop(now+.36);
+ }catch(e){console.warn('Sound could not play:',e)}
+}
+function durationChoices(e){
+ if(/3\s*[–-]\s*5\s*min/i.test(e[3]))return [180,240,300];
+ if(/30\s*[–-]\s*45\s*s/i.test(e[3]))return [30,45];
+ let x=e[3].match(/^(\d+)\s*min$/i);return x?[Number(x[1])*60]:[];
+}
+function timeText(secs){return String(Math.floor(secs/60)).padStart(2,'0')+':'+String(secs%60).padStart(2,'0')}
+function elapsedTimed(){
+ let s=data.active,t=s&&s.timed;if(!t||t.idx!==s.idx)return null;
+ if(!t.paused)t.remain=Math.max(0,Math.ceil((t.until-Date.now())/1000));
+ if(t.remain===0&&!t.notified){t.notified=true;ding();save()}
+ return t;
+}
+function timeArea(e){
+ let options=durationChoices(e),t=elapsedTimed();
+ if(!options.length)return '<b>'+escapeHTML(e[3])+'</b><label>RIPETIZIONI</label>';
+ let buttons=options.map(x=>'<button type="button" data-duration="'+x+'" class="'+(t&&t.duration===x?'active':'')+'">'+(x>=60?(x/60)+' min':x+' s')+'</button>').join('');
+ return '<b class="'+(t?'counting':'')+'" id="exerciseClock">'+(t?timeText(t.remain):escapeHTML(e[3]))+'</b><label>'+(t?(t.remain===0?'FINITO ✓':t.paused?'PAUSA · TOCCA PER RIPRENDERE':'TIMER ATTIVO · TOCCA PER PAUSA'):'TOCCA UN TEMPO PER AVVIARE')+'</label><div class="timeOptions">'+buttons+'</div>';
+}
+function attachTimeControls(e){
+ document.querySelectorAll('[data-duration]').forEach(b=>b.onclick=()=>{unlockSound();keepScreenOn();let duration=Number(b.dataset.duration),s=data.active;if(!s)return;s.timed={idx:s.idx,duration,remain:duration,until:Date.now()+duration*1000,paused:false,notified:false};save();renderSession()});
+ let clock=$('exerciseClock');if(clock)clock.onclick=()=>{let t=elapsedTimed();if(!t||t.remain===0)return;unlockSound();t.paused=!t.paused;if(!t.paused)t.until=Date.now()+t.remain*1000;save();updateExerciseClock();};
+}
+function updateExerciseClock(){
+ let t=elapsedTimed(),e=current(),clock=$('exerciseClock');if(!t||!clock||!e)return;
+ clock.textContent=timeText(t.remain);
+ let label=clock.nextElementSibling;
+ if(label)label.textContent=t.remain===0?'FINITO ✓':t.paused?'PAUSA · TOCCA PER RIPRENDERE':'TIMER ATTIVO · TOCCA PER PAUSA';
+}
+
 function getWorkout(){return D.find(x=>x.id===data.active?.wid)}
 function current(){return getWorkout()?.items[data.active?.idx]}
 function sets(e){return (data.intro&&getWorkout().kind==='intenso')?Math.min(2,e[2]):e[2]}
@@ -34,7 +84,7 @@ function stopAnim(){if(animInterval){clearInterval(animInterval);animInterval=nu
 function stopTimer(){if(timerInterval){clearInterval(timerInterval);timerInterval=null}}
 function svgUrls(id){if(urlCache[id])return urlCache[id];let p=(window.ALLENATI_MOTIONS||{})[id];if(!p||p.length!==3)return [];return urlCache[id]=p.map(svg=>URL.createObjectURL(new Blob([svg],{type:'image/svg+xml'})))}
 function mountVisual(exercise){stopAnim();const id=M[exercise[0]],frames=svgUrls(id);let box=$('visual');if(!frames.length){box.innerHTML='<div style="color:#b9cbd5;font-size:15px;text-align:center;padding:24px">Immagine temporaneamente non disponibile.<br>Controlla che l’aggiornamento sia completo.</div>';return}let note=APPROX[exercise[0]]||'';box.innerHTML='<img id="anim" alt="'+escapeHTML(exercise[1])+'">'+(note?'<div class="demoNote">'+escapeHTML(note)+'</div>':'');let n=0,sequence=[0,1,2,1];const tick=()=>{const el=$('anim');if(el)el.src=frames[sequence[n++%4]]};tick();animInterval=setInterval(tick,450)}
-function renderHome(){stopTimer();stopAnim();phase='home';const last=data.last, next=D[(last?D.findIndex(x=>x.id===last)+1:0)%5];app.innerHTML=
+function renderHome(){stopTimer();stopAnim();releaseScreen();phase='home';const last=data.last, next=D[(last?D.findIndex(x=>x.id===last)+1:0)%5];app.innerHTML=
 '<div class="row"><span class="eyebrow">● ALLENATI</span><span class="sub">HOME GYM</span></div><div class="hero"><h1>Un tap.<br>Una serie.</h1><p>Allenamento guidato, senza distrazioni. Funziona anche offline.</p></div>'+
 '<div class="panel last"><div class="row"><div><div class="sub">Ultimo allenamento completato</div><strong>'+(last?'Seduta '+last:'Nessuno ancora')+'</strong></div><span class="chip">'+(last?'Prossimo: '+next.id:'Inizia da A')+'</span></div></div>'+
 (data.active?'<button id="resume" class="primary" style="margin-bottom:16px">Riprendi seduta '+data.active.wid+' →</button>':'')+
@@ -42,38 +92,86 @@ function renderHome(){stopTimer();stopAnim();phase='home';const last=data.last, 
 D.map(w=>'<button class="session-item" data-id="'+w.id+'"><span class="letter '+(w.kind==='leggero'?'light':'')+'">'+w.id+'</span><span class="grow"><strong>'+escapeHTML(w.name)+'</strong><small>'+(w.kind==='leggero'?'LEGGERO':'INTENSO')+' · '+w.time+'</small></span><span class="chevron">›</span></button>').join('')+
 '<div class="footer">Le animazioni sono incluse nell’app, senza download aggiuntivi. Per i movimenti senza corrispondenza esatta è indicata la variante illustrata.<br>Arte da <a href="https://github.com/ozansozuozgit/flow-exercise-dataset">Flow Exercise Dataset</a> (CC0-1.0, con avvertenze sulla provenienza). Dati: MIT.<br>Se un esercizio provoca dolore, interrompilo.</div>';
 document.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>start(b.dataset.id));$('level').onclick=()=>{data.intro=!data.intro;save();renderHome()};if($('resume'))$('resume').onclick=renderSession}
-function start(id){if(data.active&&data.active.wid!==id){if(!confirm('Abbandonare la seduta '+data.active.wid+' non completata e iniziare '+id+'?'))return}data.active={wid:id,idx:0,set:1,stage:'exercise',until:0,remain:0,paused:false};save();renderSession()}
-function renderSession(){stopTimer();stopAnim();if(!data.active)return renderHome();phase='session';const w=getWorkout(),e=current(),s=data.active;
-if(!w||!e){data.active=null;save();return renderHome()}
-const progress=(w.items.slice(0,s.idx).reduce((n,e)=>n+sets(e),0)+(s.set-1))/w.items.reduce((n,e)=>n+sets(e),0)*100;
-const isRest=s.stage==='rest';
-app.innerHTML=
-'<div class="row"><button id="home" class="back">‹ Allenamenti</button><span class="chip '+(w.kind==='leggero'?'light':'')+'">'+w.id+' · '+w.kind.toUpperCase()+'</span><button id="list" class="mini">☷</button></div>'+
-'<div class="progress"><div style="width:'+progress.toFixed(1)+'%"></div></div>'+
-'<div class="stepinfo"><span>'+(isRest?'RECUPERO':'ESERCIZIO '+(s.idx+1)+' DI '+w.items.length)+'</span><span style="color:var(--muted);letter-spacing:0">SERIE '+s.set+' / '+sets(e)+'</span></div>'+
-'<h2 class="workouttitle">'+escapeHTML(e[1])+'</h2>'+
-'<div class="visual '+(isRest?'restVisual':'')+'" id="visual"></div>'+
-'<div class="stats"><div class="stat"><b>'+s.set+' / '+sets(e)+'</b><label>SERIE</label></div><div class="stat"><b>'+escapeHTML(e[3])+'</b><label>RIPETIZIONI / TEMPO</label></div></div>'+
-(e[5]&&!isRest?'<div class="weight"><button id="minus" aria-label="Riduci peso">−</button><div class="center"><strong id="weightValue">'+getWeight(e)+' kg</strong><small>PESO SALVATO · ± 1 KG</small></div><button id="plus" aria-label="Aumenta peso">+</button></div>':'')+
-'<p class="note">'+escapeHTML(isRest?'La prossima serie è pronta quando vuoi.':e[6])+'</p>'+
-'<button id="go" class="primary">'+(isRest?'AVANTI →':'Serie completata ✓')+'</button>'+
-'<button id="secondary" class="secondary">'+(isRest?'Pausa timer':'Vedi tutti gli esercizi')+'</button>'+
-'<div id="listPanel" class="overview hidden"></div>';
-$('home').onclick=()=>{stopTimer();stopAnim();save();renderHome()};$('list').onclick=showList;$('go').onclick=advance;$('secondary').onclick=isRest?togglePause:showList;
-if(!isRest){mountVisual(e);if(e[5]){$('minus').onclick=()=>adjustWeight(e,-1);$('plus').onclick=()=>adjustWeight(e,1)}}else{renderRestVisual();timerInterval=setInterval(tickRest,250)}
+function start(id){unlockSound();keepScreenOn();if(data.active&&data.active.wid!==id){if(!confirm('Abbandonare la seduta '+data.active.wid+' non completata e iniziare '+id+'?'))return}data.active={wid:id,idx:0,set:1,stage:'exercise',until:0,remain:0,paused:false};save();keepScreenOn();renderSession()}
+function renderSession(){
+ stopTimer();stopAnim();if(!data.active)return renderHome();phase='session';const w=getWorkout(),e=current(),s=data.active;
+ if(!w||!e){data.active=null;save();return renderHome()}
+ keepScreenOn();
+ const progress=(w.items.slice(0,s.idx).reduce((n,item)=>n+sets(item),0)+(s.set-1))/w.items.reduce((n,item)=>n+sets(item),0)*100;
+ const isRest=s.stage==='rest';
+ app.innerHTML=
+ '<div class="row"><button id="home" class="back">‹ Allenamenti</button><span class="chip '+(w.kind==='leggero'?'light':'')+'">'+w.id+' · '+w.kind.toUpperCase()+'</span><button id="list" class="mini">☷</button></div>'+
+ '<div class="progress"><div style="width:'+progress.toFixed(1)+'%"></div></div>'+
+ '<div class="stepinfo"><span>'+(isRest?'RECUPERO':'ESERCIZIO '+(s.idx+1)+' DI '+w.items.length)+'</span></div>'+
+ '<h2 class="workouttitle">'+escapeHTML(e[1])+'</h2>'+
+ '<div class="visual '+(isRest?'restVisual':'')+'" id="visual"></div>'+
+ (isRest?'':'<div class="stats"><div class="stat">'+timeArea(e)+'</div></div>')+
+ (e[5]&&!isRest?'<div class="weight"><button id="minus" aria-label="Riduci peso">−</button><div class="center"><strong id="weightValue">'+getWeight(e)+' kg</strong><small>PESO SALVATO · ± 1 KG</small></div><button id="plus" aria-label="Aumenta peso">+</button></div>':'')+
+ '<p class="note">'+escapeHTML(isRest?'Prepara i pesi per il prossimo esercizio.':e[6])+'</p>'+
+ '<button id="go" class="primary">'+(isRest?'AVANTI →':'Serie completata ✓')+'</button>'+
+ '<button id="secondary" class="secondary">'+(isRest?'Metti in pausa':'Vedi tutti gli esercizi')+'</button>'+
+ '<div id="listPanel" class="overview hidden"></div>';
+ $('home').onclick=()=>{stopTimer();stopAnim();save();renderHome()};
+ $('list').onclick=showList;
+ $('go').onclick=()=>{unlockSound();keepScreenOn();advance()};
+ $('secondary').onclick=isRest?togglePause:showList;
+ if(!isRest){
+   mountVisual(e);
+   if(e[5]){$('minus').onclick=()=>adjustWeight(e,-1);$('plus').onclick=()=>adjustWeight(e,1)}
+   attachTimeControls(e);
+   if(data.active.timed&&data.active.timed.idx===data.active.idx&&data.active.timed.remain>0)
+      timerInterval=setInterval(updateExerciseClock,250);
+ }else{renderRestVisual();timerInterval=setInterval(tickRest,250)}
 }
 function getWeight(e){return Math.max(0,Number(data.weights[e[0]]||0))}
 function adjustWeight(e,delta){data.weights[e[0]]=Math.max(0,getWeight(e)+delta);save();$('weightValue').textContent=getWeight(e)+' kg'}
-function nextLabel(){const s=data.active,w=getWorkout(),e=current();return s.set<sets(e)?'Serie '+(s.set+1)+' — '+e[1]:(w.items[s.idx+1]?'Prossimo: '+w.items[s.idx+1][1]:'Fine allenamento')}
-function renderRestVisual(){const box=$('visual');box.innerHTML='<div class="eyebrow" style="color:var(--blue)">RESPIRA E RECUPERA</div><div class="timer" id="clock">00:00</div><div class="timerline" id="restText">Recupero in corso</div><div class="next" id="next">'+escapeHTML(nextLabel())+'</div>';tickRest()}
-function tickRest(){const s=data.active;if(!s||s.stage!=='rest')return;if(!s.paused)s.remain=Math.max(0,Math.ceil((s.until-Date.now())/1000));const m=Math.floor(s.remain/60),sec=s.remain%60;const clock=$('clock');if(!clock)return;clock.textContent=String(m).padStart(2,'0')+':'+String(sec).padStart(2,'0');clock.classList.toggle('flash',!s.remain);$('restText').textContent=s.remain?(s.paused?'Timer in pausa':'Recupero in corso'):'Recupero terminato: premi AVANTI';if(!s.remain&&!s.paused){stopTimer();if(navigator.vibrate)navigator.vibrate([80,40,80])}}
-function togglePause(){const s=data.active;if(!s||s.stage!=='rest')return;tickRest();s.paused=!s.paused;if(!s.paused)s.until=Date.now()+s.remain*1000;save();$('secondary').textContent=s.paused?'Riprendi timer':'Pausa timer';tickRest()}
-function advance(){const s=data.active,w=getWorkout(),e=current();if(!s)return;if(s.stage==='exercise'){if(s.set===sets(e)&&s.idx===w.items.length-1){finish();return}if(e[4]>0){s.stage='rest';s.remain=e[4];s.until=Date.now()+e[4]*1000;s.paused=false;save();renderSession();return}}else{tickRest();s.stage='exercise';s.paused=false}
-if(s.set<sets(e))s.set++;else{s.idx++;s.set=1}save();renderSession()}
+function nextLabel(){
+ const s=data.active,w=getWorkout(),e=current();
+ let next=s.set<sets(e)?e:w.items[s.idx+1];
+ if(!next)return 'Fine allenamento';
+ let weight=next[5]?getWeight(next):null;
+ return (next===e?'Ancora: ':'Poi: ')+next[1]+(weight!==null?' · '+weight+' kg':'');
+}
+function renderRestVisual(){
+ const box=$('visual');
+ box.innerHTML='<div class="eyebrow" style="color:var(--blue)">RESPIRA E RECUPERA</div><div class="timer" id="clock">00:00</div><div class="timerline" id="restText">Recupero in corso</div><div class="next" id="next">'+escapeHTML(nextLabel())+'</div>';
+ tickRest()
+}
+function tickRest(){
+ const s=data.active;if(!s||s.stage!=='rest')return;
+ if(!s.paused)s.remain=Math.max(0,Math.ceil((s.until-Date.now())/1000));
+ const clock=$('clock');if(!clock)return;
+ clock.textContent=timeText(s.remain);clock.classList.toggle('flash',!s.remain);
+ $('restText').textContent=s.remain?(s.paused?'Timer in pausa':'Recupero in corso'):'Recupero concluso. Premi AVANTI';
+ if(s.remain===0&&!s.notified){
+   s.notified=true;ding();save();stopTimer();
+ }
+}
+function togglePause(){
+ const s=data.active;if(!s||s.stage!=='rest')return;
+ tickRest();if(!s.remain)return;
+ s.paused=!s.paused;if(!s.paused)s.until=Date.now()+s.remain*1000;
+ save();$('secondary').textContent=s.paused?'Riprendi il timer':'Metti in pausa';tickRest();
+}
+function advance(){
+ const s=data.active,w=getWorkout(),e=current();if(!s)return;
+ if(s.stage==='exercise'){
+  if(s.set===sets(e)&&s.idx===w.items.length-1){finish();return}
+  if(e[4]>0){
+    s.stage='rest';s.remain=e[4];s.until=Date.now()+e[4]*1000;s.paused=false;s.notified=false;
+    save();renderSession();return;
+  }
+ }else{
+  tickRest();s.stage='exercise';s.paused=false;
+ }
+ if(s.set<sets(e))s.set++;
+ else{s.idx++;s.set=1;s.timed=null}
+ save();renderSession()
+}
 function showList(){const p=$('listPanel');const w=getWorkout(),s=data.active;let hide=!p.classList.contains('hidden');if(hide){p.classList.add('hidden');return}p.classList.remove('hidden');p.innerHTML='<h3 style="margin:10px 0">Esercizi della seduta</h3>'+w.items.map((e,i)=>'<button data-index="'+i+'"><b>'+(i+1)+'. '+escapeHTML(e[1])+(i===s.idx?' · IN CORSO':'')+'</b><small>'+sets(e)+' × '+escapeHTML(e[3])+' · recupero '+e[4]+'s</small></button>').join('')+'<div class="safety">Tocca un esercizio per raggiungerlo. Le serie non completate vengono saltate.</div>';p.querySelectorAll('[data-index]').forEach(b=>b.onclick=()=>{if(!confirm('Passare a questo esercizio?'))return;s.idx=Number(b.dataset.index);s.set=1;s.stage='exercise';save();renderSession()})}
-function finish(){const w=getWorkout();stopTimer();stopAnim();data.last=w.id;data.lastDate=new Date().toISOString();data.active=null;save();phase='complete';app.innerHTML='<div class="hero" style="padding-top:20vh;text-align:center"><div class="eyebrow">ALLENAMENTO COMPLETATO</div><h1 style="margin:22px 0">Seduta '+w.id+' ✓</h1><p>Ottimo lavoro. La prossima seduta sarà '+D[(D.findIndex(x=>x.id===w.id)+1)%5].id+'.</p></div><button class="primary" id="done">Torna agli allenamenti →</button>';$('done').onclick=renderHome}
+function finish(){const w=getWorkout();stopTimer();stopAnim();releaseScreen();data.last=w.id;data.lastDate=new Date().toISOString();data.active=null;save();phase='complete';app.innerHTML='<div class="hero" style="padding-top:20vh;text-align:center"><div class="eyebrow">ALLENAMENTO COMPLETATO</div><h1 style="margin:22px 0">Seduta '+w.id+' ✓</h1><p>Ottimo lavoro. La prossima seduta sarà '+D[(D.findIndex(x=>x.id===w.id)+1)%5].id+'.</p></div><button class="primary" id="done">Torna agli allenamenti →</button>';$('done').onclick=renderHome}
 window.addEventListener('pagehide',save);
-window.addEventListener('visibilitychange',()=>{if(document.hidden){save();stopAnim()}else if(phase==='session')renderSession()});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){save();stopAnim();releaseScreen()}else if(phase==='session'){keepScreenOn();renderSession()}});
 try{if(!window.ALLENATI_MOTIONS||Object.keys(window.ALLENATI_MOTIONS).length<30)throw Error('Animazioni non ancora caricate');renderHome()}catch(err){app.innerHTML='<div class="hero"><h1>Allenati</h1><p>Alcuni file dell’aggiornamento non sono ancora disponibili. Riapri l’app con Internet per completare l’installazione.</p></div><button class="primary" onclick="location.reload()">Riprova</button>';console.error(err)}
 if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(console.warn));
 </script></body></html>
