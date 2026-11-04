@@ -30,7 +30,7 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(data))}catch(e){}}
 // While a guided session is visible, request a screen wake lock (supported in Home Screen web apps on modern iOS).
 let wakeSentinel=null,wakeBusy=false,wakeUnavailable=false;
 async function keepScreenOn(){
- if(!data.active||document.visibilityState!=='visible'||wakeBusy||wakeSentinel&&!wakeSentinel.released)return;
+ if(document.visibilityState!=='visible'||wakeBusy||wakeSentinel&&!wakeSentinel.released)return;
  if(!('wakeLock' in navigator)){wakeUnavailable=true;return}
  wakeBusy=true;
  try{wakeSentinel=await navigator.wakeLock.request('screen');wakeUnavailable=false;wakeSentinel.addEventListener('release',()=>{wakeSentinel=null})}
@@ -39,7 +39,7 @@ async function keepScreenOn(){
 }
 function releaseScreen(){const current=wakeSentinel;wakeSentinel=null;if(current)current.release().catch(()=>{})}
 let soundContext=null;
-function unlockSound(){try{let C=window.AudioContext||window.webkitAudioContext;if(!C)return;if(!soundContext)soundContext=new C();if(soundContext.state==='suspended')soundContext.resume().catch(()=>{})}catch(e){console.warn(e)}}
+function unlockSound(){try{if(navigator.audioSession&&'type' in navigator.audioSession)navigator.audioSession.type='playback';let C=window.AudioContext||window.webkitAudioContext;if(!C)return;if(!soundContext)soundContext=new C();if(soundContext.state==='suspended')soundContext.resume().catch(()=>{})}catch(e){console.warn(e)}}
 function ding(){
  try{unlockSound();if(!soundContext||soundContext.state!=='running')return;const now=soundContext.currentTime;
  const osc=soundContext.createOscillator(),vol=soundContext.createGain();osc.type='sine';osc.frequency.setValueAtTime(880,now);osc.frequency.exponentialRampToValueAtTime(660,now+.18);
@@ -67,7 +67,7 @@ function timeArea(e){
 }
 function attachTimeControls(e){
  document.querySelectorAll('[data-duration]').forEach(b=>b.onclick=()=>{unlockSound();keepScreenOn();let duration=Number(b.dataset.duration),s=data.active;if(!s)return;s.timed={idx:s.idx,duration,remain:duration,until:Date.now()+duration*1000,paused:false,notified:false};save();renderSession()});
- let clock=$('exerciseClock');if(clock)clock.onclick=()=>{let t=elapsedTimed();if(!t||t.remain===0)return;unlockSound();t.paused=!t.paused;if(!t.paused)t.until=Date.now()+t.remain*1000;save();updateExerciseClock();};
+ let clock=$('exerciseClock');if(clock){clock.style.cursor='pointer';clock.style.touchAction='manipulation';clock.onclick=()=>{unlockSound();keepScreenOn();let t=elapsedTimed();if(!t){const duration=durationChoices(e)[0];if(!duration)return;data.active.timed={idx:data.active.idx,duration,remain:duration,until:Date.now()+duration*1000,paused:false,notified:false};save();renderSession();return}if(t.remain===0)return;t.paused=!t.paused;if(!t.paused)t.until=Date.now()+t.remain*1000;save();updateExerciseClock()}};
 }
 function updateExerciseClock(){
  let t=elapsedTimed(),e=current(),clock=$('exerciseClock');if(!t||!clock||!e)return;
@@ -84,7 +84,7 @@ function stopAnim(){if(animInterval){clearInterval(animInterval);animInterval=nu
 function stopTimer(){if(timerInterval){clearInterval(timerInterval);timerInterval=null}}
 function svgUrls(id){if(urlCache[id])return urlCache[id];let p=(window.ALLENATI_MOTIONS||{})[id];if(!p||p.length!==3)return [];return urlCache[id]=p.map(svg=>URL.createObjectURL(new Blob([svg],{type:'image/svg+xml'})))}
 function mountVisual(exercise){stopAnim();const id=M[exercise[0]],frames=svgUrls(id);let box=$('visual');if(!frames.length){box.innerHTML='<div style="color:#b9cbd5;font-size:15px;text-align:center;padding:24px">Immagine temporaneamente non disponibile.<br>Controlla che l’aggiornamento sia completo.</div>';return}let note=APPROX[exercise[0]]||'';box.innerHTML='<img id="anim" alt="'+escapeHTML(exercise[1])+'">'+(note?'<div class="demoNote">'+escapeHTML(note)+'</div>':'');let n=0,sequence=[0,1,2,1];const tick=()=>{const el=$('anim');if(el)el.src=frames[sequence[n++%4]]};tick();animInterval=setInterval(tick,450)}
-function renderHome(){stopTimer();stopAnim();releaseScreen();phase='home';const last=data.last, next=D[(last?D.findIndex(x=>x.id===last)+1:0)%5];app.innerHTML=
+function renderHome(){stopTimer();stopAnim();keepScreenOn();phase='home';const last=data.last, next=D[(last?D.findIndex(x=>x.id===last)+1:0)%5];app.innerHTML=
 '<div class="row"><span class="eyebrow">● ALLENATI</span><span class="sub">HOME GYM</span></div><div class="hero"><h1>Un tap.<br>Una serie.</h1><p>Allenamento guidato, senza distrazioni. Funziona anche offline.</p></div>'+
 '<div class="panel last"><div class="row"><div><div class="sub">Ultimo allenamento completato</div><strong>'+(last?'Seduta '+last:'Nessuno ancora')+'</strong></div><span class="chip">'+(last?'Prossimo: '+next.id:'Inizia da A')+'</span></div></div>'+
 (data.active?'<button id="resume" class="primary" style="margin-bottom:16px">Riprendi seduta '+data.active.wid+' →</button>':'')+
@@ -169,9 +169,10 @@ function advance(){
  save();renderSession()
 }
 function showList(){const p=$('listPanel');const w=getWorkout(),s=data.active;let hide=!p.classList.contains('hidden');if(hide){p.classList.add('hidden');return}p.classList.remove('hidden');p.innerHTML='<h3 style="margin:10px 0">Esercizi della seduta</h3>'+w.items.map((e,i)=>'<button data-index="'+i+'"><b>'+(i+1)+'. '+escapeHTML(e[1])+(i===s.idx?' · IN CORSO':'')+'</b><small>'+sets(e)+' × '+escapeHTML(e[3])+' · recupero '+e[4]+'s</small></button>').join('')+'<div class="safety">Tocca un esercizio per raggiungerlo. Le serie non completate vengono saltate.</div>';p.querySelectorAll('[data-index]').forEach(b=>b.onclick=()=>{if(!confirm('Passare a questo esercizio?'))return;s.idx=Number(b.dataset.index);s.set=1;s.stage='exercise';save();renderSession()})}
-function finish(){const w=getWorkout();stopTimer();stopAnim();releaseScreen();data.last=w.id;data.lastDate=new Date().toISOString();data.active=null;save();phase='complete';app.innerHTML='<div class="hero" style="padding-top:20vh;text-align:center"><div class="eyebrow">ALLENAMENTO COMPLETATO</div><h1 style="margin:22px 0">Seduta '+w.id+' ✓</h1><p>Ottimo lavoro. La prossima seduta sarà '+D[(D.findIndex(x=>x.id===w.id)+1)%5].id+'.</p></div><button class="primary" id="done">Torna agli allenamenti →</button>';$('done').onclick=renderHome}
-window.addEventListener('pagehide',save);
+function finish(){const w=getWorkout();stopTimer();stopAnim();keepScreenOn();data.last=w.id;data.lastDate=new Date().toISOString();data.active=null;save();phase='complete';app.innerHTML='<div class="hero" style="padding-top:20vh;text-align:center"><div class="eyebrow">ALLENAMENTO COMPLETATO</div><h1 style="margin:22px 0">Seduta '+w.id+' ✓</h1><p>Ottimo lavoro. La prossima seduta sarà '+D[(D.findIndex(x=>x.id===w.id)+1)%5].id+'.</p></div><button class="primary" id="done">Torna agli allenamenti →</button>';$('done').onclick=renderHome}
+window.addEventListener('pagehide',()=>{save();releaseScreen()});
 document.addEventListener('visibilitychange',()=>{if(document.hidden){save();stopAnim();releaseScreen()}else if(phase==='session'){keepScreenOn();renderSession()}});
 try{if(!window.ALLENATI_MOTIONS||Object.keys(window.ALLENATI_MOTIONS).length<30)throw Error('Animazioni non ancora caricate');renderHome()}catch(err){app.innerHTML='<div class="hero"><h1>Allenati</h1><p>Alcuni file dell’aggiornamento non sono ancora disponibili. Riapri l’app con Internet per completare l’installazione.</p></div><button class="primary" onclick="location.reload()">Riprova</button>';console.error(err)}
 if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(console.warn));
+window.addEventListener('pageshow',()=>{if(document.visibilityState==='visible')keepScreenOn()});
 </script></body></html>
