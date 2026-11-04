@@ -1,4 +1,4 @@
-const CACHE='allenati-complete-v4-20261103b';
+const CACHE='allenati-complete-v5-20261104';
 const PRECACHE=['./','./index.html','./manifest.webmanifest','./icon.png',
 './assets/motion-01.js','./assets/motion-02.js','./assets/motion-03.js','./assets/motion-04.js','./assets/motion-05.js','./assets/motion-06.js','./assets/motion-07.js','./assets/motion-08.js','./assets/motion-09.js','./assets/motion-10.js'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{const cache=await caches.open(CACHE);await cache.addAll(PRECACHE);await self.skipWaiting()})()));
